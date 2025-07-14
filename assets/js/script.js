@@ -15,7 +15,7 @@ function getTodoList(todos){
   let list = '<div class="row m-2">'
    todos?.forEach(function(item, index){
     list += `<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center p-2">
-      <p class="text-info m-2 p-2">${item}</p>
+      <p class="text-info m-2 p-2 text-nowrap">${item}</p>
       <button type="button" class="btn btn-danger m-2" onclick="deleteTodo(${index})">Delete</button>
     </div>
    `
