@@ -5,7 +5,11 @@ document.querySelector(".btn.btn-info").addEventListener("click", function(){
    document.querySelector("#errMsg").innerHTML = '<p class="text-center text-danger">Please enter your to do value</p>'
   }else{
     todos.push(todoValue)
-    getTodoList(todos)
+    setTimeout(function(){
+     getTodoList(todos)
+     document.querySelector("#loading").innerHTML = ""
+    },1000)
+    isLoading()
     document.querySelector(".form-control").value = ""
     document.querySelector("#errMsg").innerHTML = ""
   }
@@ -38,4 +42,15 @@ function showTodoLength(){
  if(todoLength === 0){
   document.querySelector("#todoLength").innerHTML = "<h2 class='text-center text-danger'>No data available</h2>"
  }
+}
+
+function isLoading(){
+  let loading = "<div class='d-flex justify-content-center'>"
+  loading += `
+   <div class="spinner-border text-info" role="status">
+     <span class="sr-only">Loading...</span>
+   </div>
+  `
+  loading += "</div>"
+  document.querySelector("#loading").innerHTML = loading
 }
